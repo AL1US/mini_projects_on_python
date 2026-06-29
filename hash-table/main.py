@@ -21,8 +21,12 @@ class HashMap():
     def get(self, key):
         index = hash(key) % 16
         
+        if self.table[index] == None or self.table[index] == "deleted":
+            print("Not found")
+            return True
+        
         while self.table[index][0] != key:
-            if self.table[index][0] == None:
+            if self.table[index] == None:
                 print("Not found")
                 return True
             index += 1
@@ -32,12 +36,14 @@ class HashMap():
     
     
     def delete(self, key):
-        pass
+        index = hash(key) % 16
+        self.table[index] = "delete"
+        return True
 
 map = HashMap()
 
 map.put("banana", 1)
-map.put("apple", 2)
+print(map.table)
+map.delete("banana")
+print(map.table)
 
-map.get("banana")
-map.get("apple")
