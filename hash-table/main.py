@@ -1,3 +1,5 @@
+# В данной реализации если что то где то привысит длину массива, то всё сломается. Также в след реализации можно сделать увеличение массива
+
 class HashMap():
     def __init__(self):
         self.table: list[None] = [None] * 16
@@ -52,6 +54,7 @@ class HashMap():
         
         return True
 
+# Тесты
 map = HashMap()
 
 map.put("banana", 1)
